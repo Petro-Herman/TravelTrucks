@@ -1,3 +1,4 @@
+import FeaturesFilter from '../FeaturesFilter/FeaturesFilter';
 import css from './Filters.module.css';
 
 export default function Filters({ onFilterChange }) {
@@ -11,8 +12,12 @@ export default function Filters({ onFilterChange }) {
           onChange={e => onFilterChange('location', e.target.value)}
         />
       </div>
-      <button onClick={() => onFilterChange('ac', true)}>AC</button>
-      <button onClick={() => onFilterChange('kitchen', true)}>Kitchen</button>
+      <div>
+        <p>Filters</p>
+        {/* <button onClick={() => onFilterChange('ac', true)}>AC</button> */}
+        <FeaturesFilter />
+        {/* <button onClick={() => onFilterChange('kitchen', true)}>Kitchen</button> */}
+      </div>
     </div>
   );
 }
