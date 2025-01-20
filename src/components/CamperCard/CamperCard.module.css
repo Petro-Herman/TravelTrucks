@@ -1,0 +1,36 @@
+.camperCard {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 300px;
+  margin: 20px;
+  text-align: center;
+}
+
+.camperCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.camperCard h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.camperCard p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.camperCard button {
+  margin-top: 10px;
+}
+
+.camperCard a {
+  margin-top: 15px;
+  display: inline-block;
+  color: #007bff;
+}

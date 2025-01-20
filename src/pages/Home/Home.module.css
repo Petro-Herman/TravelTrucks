@@ -1,0 +1,71 @@
+.home {
+  height: 696px;
+  width: 1440px;
+  /* margin-left: 64px; */
+  /* padding-left: 64px; */
+  background-image: url('../../images/home-background.jpg'); /* Шлях до зображення */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.overlay {
+  padding-left: 64px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  text-align: center;
+  gap: 40px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+h1 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 0.67;
+  color: #f7f7f7;
+  margin-bottom: 12px;
+}
+
+p {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #f7f7f7;
+}
+
+/* button {
+  padding: 15px 30px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+} */
+
+.button {
+  border-radius: 200px;
+  padding: 16px 48.5px;
+  width: 173px;
+  height: 56px;
+  background: #e44848;
+  color: white;
+  cursor: pointer;
+  /* border: none; */
+}
+
+button:hover {
+  background: #d84343;
+}
