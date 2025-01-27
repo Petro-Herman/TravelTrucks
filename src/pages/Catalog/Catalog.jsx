@@ -11,10 +11,20 @@ export default function Catalog() {
   const campersState = useSelector(state => state.campers);
   const { items: campers, loading } = campersState;
   const [showMore, setShowMore] = useState(6);
+  const [selectedFilters, setSelectedFilters] = useState([]);
 
   useEffect(() => {
     dispatch(fetchCampers());
   }, [dispatch]);
+
+  const handleFilterChange = newFilters => {
+    setSelectedFilters(newFilters);
+  };
+
+  const filteredCampers = campers.filter(camper => {
+    if (selectedFilters.length === 0) return true;
+    return selectedFilters.every(filter => camper.features.includes(filter));
+  });
 
   const loadMore = () => {
     setShowMore(showMore + 6);
@@ -23,11 +33,22 @@ export default function Catalog() {
   return (
     <section className={css.catalog}>
       {/* <h2>Camper Catalog</h2> */}
-      <Filters onFilterChange={() => {}} />
-      {loading ? <Loader /> : <CamperList campers={campers} />}
-      <button className={css.loadMoreBtn} onClick={loadMore}>
-        Load More
-      </button>
+      {/* <Filters onFilterChange={() => {}} /> */}
+      <Filters
+        selectedFilters={selectedFilters}
+        onFilterChange={handleFilterChange}
+      />
+      {loading ? (
+        <Loader />
+      ) : (
+        <CamperList campers={filteredCampers.slice(0, showMore)} />
+      )}
+      {showMore < filteredCampers.length && (
+        <button className={css.loadMoreBtn} onClick={loadMore}>
+          Load More
+        </button>
+      )}
+      {/* {loading ? <Loader /> : <CamperList campers={campers} />} */}
     </section>
   );
 }
