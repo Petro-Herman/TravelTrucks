@@ -39,10 +39,12 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import API_URL from '../Back-end/back.js';
 
 export const fetchCampers = createAsyncThunk('campers/fetchAll', async () => {
   const response = await axios.get(
-    'https://connections-api.goit.global/campers'
+    API_URL
+    // 'https://connections-api.goit.global/campers'
   );
   return response.data;
 });
@@ -64,7 +66,7 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.items = action.payload;
+        state.items = action.payload.items;
       })
       .addCase(fetchCampers.rejected, (state, action) => {
         state.status = 'failed';
